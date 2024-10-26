@@ -5,7 +5,13 @@ import matplotlib
 import scipy.optimize
 
 matplotlib.use('TkAgg')
+
 import matplotlib.pyplot as plt
+
+matplotlib.rcParams['mathtext.fontset'] = 'stix'
+matplotlib.rcParams['font.family'] = 'STIXGeneral'
+plt.title(r'ABC123 vs $\mathrm{ABC123}^{123}$')
+
 
 #Read the file
 def read_spe_file(file_path):
@@ -67,13 +73,18 @@ def linear_fit(x, y):
     slope, intercept = np.polyfit(x, y, 1)
     return slope, intercept
 
-def linear_plot(x, y, slope, intercept,spacing):
+def linear_plot(x, y, slope, intercept,spacing, filename):
     plt.plot(x, [slope * t + intercept for t in x], 'r--', label="Linear fit")
     plt.plot(x, y, 'b.',label="mean values of time calibration")
     plt.xlabel('Mean values of time calibration)')
     plt.ylabel('time (ns)')
     plt.title("Time calibration means vs time with " +spacing+"ns spacing")
+    plt.text(0.05, 0.95, f"Slope: {slope:.5f}", transform=plt.gca().transAxes,
+             fontsize=10, verticalalignment='top')
+
+    plt.text(0.05, 0.90, f"Interception point with y-axies: {intercept:.2f}", transform=plt.gca().transAxes,
+             fontsize=10, verticalalignment='top')
     plt.legend()
-    plt.savefig("plots/time_calibration_means_vs_time.pdf")
+    plt.savefig(filename)
     plt.close()
 

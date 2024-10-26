@@ -54,7 +54,7 @@ means = [fitted_mean1, fitted_mean2, fitted_mean3, fitted_mean4, fitted_mean5]
 
 slope, intercept = linear_fit( means,time)
 
-linear_plot(means, time, slope, intercept,"4")
+linear_plot(means, time, slope, intercept,"4","plots/time_calibration_means_vs_time_4ns_spacing.pdf")
 
 print(slope, intercept)
 
