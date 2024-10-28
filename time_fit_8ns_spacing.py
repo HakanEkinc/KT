@@ -4,10 +4,14 @@ dataset = read_spe_file("measurements/time_calibration_8ns_spacing.Spe")
 
 
 #plot the dataset
-'''plt.plot(dataset)
-plt.xlabel('Time')
+plt.plot(dataset)
+plt.title("Time calibration raw dataset, spacing 8ns")
+plt.xlabel('Bin position')
 plt.ylabel('Counts')
-plt.show()'''
+plt.xlim(1500, 4000)
+plt.savefig("plots/time_calibration_dataset_8ns_spacing.pdf")
+plt.close()
+#plt.show()
 
 #curvefit the first gaussian in dataset from position 950 to 1000
 

@@ -5,11 +5,15 @@ dataset = read_spe_file("measurements/time_calibration_4ns_spacing.Spe")
 
 #plot the dataset
 
-'''plt.plot(dataset)
-plt.xlabel('Time')
+#plot the dataset
+plt.plot(dataset)
+plt.title("Time calibration raw dataset spacing 4ns ")
+plt.xlabel('Bin position')
 plt.ylabel('Counts')
-plt.show()
-'''
+plt.xlim(500, 2000)
+plt.savefig("plots/time_calibration_dataset_4ns_spacing.pdf")
+plt.close()
+#plt.show()
 
 
 
@@ -55,7 +59,7 @@ means = [fitted_mean1, fitted_mean2, fitted_mean3, fitted_mean4, fitted_mean5]
 slope, intercept = linear_fit( means,time)
 
 linear_plot(means, time, slope, intercept,"4","plots/time_calibration_means_vs_time_4ns_spacing.pdf")
-
+print(means)
 print(slope, intercept)
 
 
