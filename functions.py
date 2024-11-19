@@ -61,7 +61,7 @@ def plot_function(x, y, x_fit, y_fitted, fitted_mean, filename, time):
     plt.plot(x_fit, y_fitted, 'r', label='Fitted Gaussian')
     plt.plot(x, y, 'b.', label='Data points')  # Plot the original data as points
     plt.axvline(fitted_mean, color='k', linestyle='--', label='Mean')
-    plt.xlabel('Bin position')
+    plt.xlabel('Bin position (a.u.)')
     plt.title("Gaussian fit for time intervall "+time+"ns")
     plt.ylabel('Counts')
     plt.legend()
@@ -76,7 +76,7 @@ def linear_fit(x, y):
 def linear_plot(x, y, slope, intercept,spacing, filename):
     plt.plot(x, [slope * t + intercept for t in x], 'r--', label="Linear fit")
     plt.plot(x, y, 'b.',label="mean values of time calibration")
-    plt.xlabel('Mean values of time calibration)')
+    plt.xlabel('bin position (a.u.)')
     plt.ylabel('time (ns)')
     plt.title("Time calibration means vs time with " +spacing+"ns spacing")
     plt.text(0.05, 0.95, f"Slope: {slope:.5f}", transform=plt.gca().transAxes,

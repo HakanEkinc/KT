@@ -8,7 +8,7 @@ dataset = read_spe_file("measurements/time_calibration_4ns_spacing.Spe")
 #plot the dataset
 plt.plot(dataset)
 plt.title("Time calibration raw dataset spacing 4ns ")
-plt.xlabel('Bin position')
+plt.xlabel('Bin position (a.u.)')
 plt.ylabel('Counts')
 plt.xlim(500, 2000)
 plt.savefig("plots/time_calibration_dataset_4ns_spacing.pdf")
